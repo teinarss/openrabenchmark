@@ -46,8 +46,8 @@ def readData(files):
 # pr_files = getFileNames('pr1-{}Pathfinder.csv', 5)
 
 
-m_bleed_files = getFileNames('bleed-renderble-{}tick_time.csv', 5)
-pr_files = getFileNames('pr-renderble-{}tick_time.csv', 5)
+m_bleed_files = getFileNames('bleed-rendering-{}tick_time.csv', 5)
+pr_files = getFileNames('pr-struct-{}tick_time.csv', 5)
 
 print(len(m_bleed_files))
 bleed = readData(m_bleed_files)
@@ -64,10 +64,10 @@ pr = readData(pr_files)
 # print(baseline.tail(5))
 
 #fig, ax = plt.subplots()
-log = True
+log = False
 #baseline = baseline.astype(float)
 plt.figure(figsize=(20,10)); 
-bins=np.linspace(0.001, 60.001, 200)
+bins=np.linspace(10.001, 30.001, 200)
 #bins = 'auto'
 plt.hist(bleed['time [ms]'], color='tab:red', label='Bleed',stacked=True, alpha=0.5,bins=bins, log=log)
 
@@ -81,5 +81,7 @@ plt.hist(pr['time [ms]'], color='tab:blue', label='pr', stacked=True, alpha=0.5,
 # pr.plot(kind='hist', label='pr',color='tab:blue', ax=ax, stacked=True, alpha=0.5, bins=np.linspace(0.001, 30.001, 50), log=True); 
 # plt.xlim(50,75)
 # plt.legend();
+plt.xlabel("time (ms)")
+plt.ylabel("Frequency")
 plt.legend();
 plt.show()

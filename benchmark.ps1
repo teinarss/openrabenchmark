@@ -13,9 +13,9 @@ function runBenchmarks($prefix, [int]$samples) {
     for($i = 0; $i -lt $samples; $i++)
     {
         $params.Add("$bechparam$prefix$i")
-        & "C:\projects\OpenRa1\OpenRa.Game.exe" @params
+        & "C:\projects\OpenRa\OpenRa.Game.exe" @params
     }
 }
 
 Write-Host "euoe"
-runBenchmarks  -prefix "bleed-renderble-" -samples 5
+runBenchmarks  -prefix "pr-struct-" -samples 5

@@ -46,8 +46,8 @@ def readData(files):
 # pr_files = getFileNames('pr1-{}Pathfinder.csv', 5)
 
 
-m_bleed_files = getFileNames('bleed-rendering-{}tick_time.csv', 5)
-pr_files = getFileNames('pr-struct-{}tick_time.csv', 5)
+m_bleed_files = getFileNames('bleed-{}tick_time.csv', 2)
+pr_files = getFileNames('pr-{}tick_time.csv', 2)
 
 print(len(m_bleed_files))
 bleed = readData(m_bleed_files)
@@ -67,7 +67,7 @@ pr = readData(pr_files)
 log = False
 #baseline = baseline.astype(float)
 plt.figure(figsize=(20,10)); 
-bins=np.linspace(10.001, 30.001, 200)
+bins=np.linspace(0.5, 15.001, 200)
 #bins = 'auto'
 plt.hist(bleed['time [ms]'], color='tab:red', label='Bleed',stacked=True, alpha=0.5,bins=bins, log=log)
 

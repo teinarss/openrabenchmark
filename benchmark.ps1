@@ -1,8 +1,9 @@
 [System.Collections.ArrayList]$params = @(
     'Game.Mod=ra'
-     'Launch.Map=C:\Users\Tomas.PYTTEMJUK\Documents\OpenRA\maps/ra/{DEV_VERSION}\pathbenchra'
+    'Engine.EngineDir=..'
+     #'Launch.Map=C:\Users\Tomas.PYTTEMJUK\Documents\OpenRA\maps/ra/{DEV_VERSION}\pathbenchra'
      #'Launch.Map=C:\Users\Tomas.PYTTEMJUK\Documents\OpenRA\maps/ra/{DEV_VERSION}\treebench'
-    #'Launch.Replay=C:\Users\Tomas.PYTTEMJUK\Documents\OpenRA\Replays\ra\{DEV_VERSION}\OpenRA-2019-06-06T141718Z.orarep'
+    'Launch.Replay=C:\Users\Tomas.PYTTEMJUK\Documents\OpenRA\Replays\ra\{DEV_VERSION}\ra-2021-01-23T151957Z.orarep'
 )
 
 $bechparam = "Launch.Benchmark=" 
@@ -13,9 +14,9 @@ function runBenchmarks($prefix, [int]$samples) {
     for($i = 0; $i -lt $samples; $i++)
     {
         $params.Add("$bechparam$prefix$i")
-        & "C:\projects\OpenRa\OpenRa.Game.exe" @params
+        & "C:\projects\OpenRa\bin\OpenRA.exe" @params
     }
 }
 
 Write-Host "euoe"
-runBenchmarks  -prefix "pr-struct-" -samples 5
+runBenchmarks  -prefix "pr-" -samples 2
